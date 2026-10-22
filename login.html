@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in — Loopify</title><link rel="icon" href="/assets/loopify-icon.jpeg"><link rel="stylesheet" href="/auth.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="/home.html"><img src="/assets/loopify-icon.jpeg" alt=""><span>loopify</span></a><a href="/home.html">About Loopify</a></header>
+<main class="layout">
+<section class="welcome"><img class="wordmark" src="/assets/loopify-wordmark.jpeg" alt="Loopify"><p class="eyebrow">CIRCULAR MATERIALS MARKETPLACE</p><h1>Every material deserves another loop.</h1><p>Sign in to continue to your role-specific Loopify workspace.</p><div class="pills"><span>Producers</span><span>Recyclers / Buyers</span><span>Administrators</span></div></section>
+<section class="auth-card">
+<div class="switch"><button id="signin-tab" class="active" type="button">Sign in</button><button id="register-tab" type="button">Create account</button></div>
+<div id="message" role="status"></div>
+<form id="signin-form">
+<label>Email<input id="signin-email" type="email" required autocomplete="username" placeholder="you@company.com"></label>
+<label>Password<input id="signin-password" type="password" required autocomplete="current-password" placeholder="Enter password"></label>
+<button class="submit" type="submit">Sign in <span>→</span></button>
+</form>
+<form id="register-form" hidden>
+<label>Your name<input id="reg-name" required autocomplete="name" placeholder="Full name"></label>
+<label>Company name<input id="reg-company" required placeholder="Company / organization"></label>
+<label>Email<input id="reg-email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+<label>Password<input id="reg-password" type="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"></label>
+<label>Account type<select id="reg-role"><option value="producer">Producer / Seller</option><option value="recycler">Recycler / Buyer</option></select></label>
+<button class="submit" type="submit">Create account <span>→</span></button>
+</form>
+<div class="demo"><strong>Demo accounts</strong><p><b>Admin</b> admin@loopify.demo / LoopifyAdmin123!</p><p><b>Seller</b> seller@loopify.demo / SellerDemo123!</p><p><b>Buyer</b> buyer@loopify.demo / BuyerDemo123!</p><small>Demo-only accounts. Do not use these credentials on a public production site.</small></div>
+</section></main>
+<script src="/auth.js"></script>
+</body></html>

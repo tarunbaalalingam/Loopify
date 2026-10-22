@@ -1,0 +1,14 @@
+{
+  "name": "loopify-deployment-kit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  },
+  "devDependencies": {
+    "netlify-cli": "^23.0.0"
+  }
+}

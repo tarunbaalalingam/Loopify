@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loopify — Circular Materials Marketplace</title>
+  <meta name="description" content="Connect waste producers, recyclers and material buyers through a circular materials marketplace.">
+  <link rel="icon" type="image/jpeg" href="/assets/loopify-icon.jpeg">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:title" content="Loopify">
+  <meta property="og:description" content="A circular materials marketplace connecting producers, recyclers and buyers.">
+  <meta property="og:image" content="/assets/loopify-wordmark.jpeg">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Loopify home">
+      <img src="/assets/loopify-icon.jpeg" alt="" class="mark">
+      <span>loopify</span>
+    </a>
+    <nav><a href="#how">How it works</a><a href="#materials">Materials</a><a class="nav-cta" href="#join">Get started</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">WASTE IN. VALUE AROUND.</p>
+        <h1>Keep materials moving in a better <em>loop.</em></h1>
+        <p class="lead">Loopify helps connect material producers, recyclers and buyers so reusable resources can find their next purpose.</p>
+        <div class="actions"><a class="button primary" href="#join">Explore the platform</a><a class="button secondary" href="#how">See how it works</a></div>
+        <p class="note">A circular marketplace concept • Demo website</p>
+      </div>
+      <div class="hero-art"><img src="/assets/loopify-wordmark.jpeg" alt="Loopify infinity symbol and wordmark"></div>
+    </section>
+    <section id="how" class="section">
+      <p class="eyebrow">THE LOOPIFY FLOW</p><h2>From leftover material to new value.</h2>
+      <div class="cards">
+        <article><span class="number">01</span><h3>Collect</h3><p>Record material from small generators and bulk sources.</p></article>
+        <article><span class="number">02</span><h3>Aggregate</h3><p>Group compatible materials into useful lots for onward handling.</p></article>
+        <article><span class="number">03</span><h3>Move</h3><p>Coordinate transport and track deliveries to recycling partners.</p></article>
+        <article><span class="number">04</span><h3>Reuse & sell</h3><p>Connect recovered materials with buyers looking for resources.</p></article>
+      </div>
+    </section>
+    <section id="materials" class="section materials">
+      <div><p class="eyebrow">CIRCULAR BY DESIGN</p><h2>Make useful materials easier to find.</h2><p>Start with a clear record of material type, quantity, condition and location. Actual listings and orders require the full application API to be connected.</p></div>
+      <div class="material-tags"><span>Paper & cardboard</span><span>Plastics</span><span>Metals</span><span>Glass</span><span>Textiles</span><span>Organic material</span></div>
+    </section>
+    <section id="join" class="join">
+      <img src="/assets/loopify-icon.jpeg" alt="" class="join-mark">
+      <div><p class="eyebrow">BUILD A BETTER LOOP</p><h2>Ready to connect the chain?</h2><p>This deployment kit gives you the branded website, Netlify setup and Neon database connection test. It does not yet migrate your previous demo login or all marketplace actions to the database.</p></div>
+      <a class="button primary" href="mailto:hello@example.com">Get in touch</a>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Loopify</span><span>Waste becomes a resource.</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
