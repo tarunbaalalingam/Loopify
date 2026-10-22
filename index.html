@@ -1,5 +1,224 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Loopify — Sign in</title><link rel="icon" href="/assets/loopify-icon.jpeg"><link rel="stylesheet" href="/styles.css">
-<meta http-equiv="refresh" content="0;url=/login.html"></head>
-<body><p>Opening Loopify login… <a href="/login.html">Continue to login</a></p></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOOPIFY | Materials in a Better Loop</title>
+  <link rel="icon" type="image/jpeg" href="/assets/loopify-icon.jpeg">
+  <link rel="stylesheet" href="/style.css">
+  <script>try{if(!JSON.parse(sessionStorage.getItem("loopify_demo_session")||"null"))location.replace("/login.html")}catch{location.replace("/login.html")}</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-view="dashboard">
+      <img class="logo" src="/assets/loopify-icon.jpeg" alt="">
+      <span>LOOPIFY<small>Materials in a better loop</small></span>
+    </a>
+    <nav>
+      <button class="nav active" data-view="dashboard">Dashboard</button>
+      <button class="nav" data-view="listings">Listings</button>
+      <button class="nav" data-view="add">Add material</button>
+      <button class="nav" data-view="impact">Impact</button>
+    </nav>
+    <span class="demo-badge">DEMO MODE</span>
+    <button id="logout" class="button secondary" type="button">Log out</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LOCAL CIRCULAR ECONOMY</p>
+        <h1>Waste less.<br><span>Loop more.</span></h1>
+        <p class="hero-copy">
+          Connect useful leftover materials with suitable buyers
+          and recovery partners in your area.
+        </p>
+        <button class="button primary" data-view="add">+ List a material</button>
+        <button class="button secondary" data-view="listings">Explore listings</button>
+        <p class="notice">ProtoSpark prototype · Sample data only</p>
+      </div>
+      <div class="hero-art">
+        <div class="orbit"></div>
+        <img class="planet" src="/assets/loopify-wordmark.jpeg" alt="Loopify">
+        <span class="float-card card-one">📦 Cardboard</span>
+        <span class="float-card card-two">☕ Coffee grounds</span>
+        <span class="float-card card-three">♻️ Reusable materials</span>
+      </div>
+    </section>
+
+    <section id="dashboard" class="view">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">YOUR OVERVIEW</p>
+          <h2>Loopify dashboard</h2>
+        </div>
+        <span class="muted">Your material marketplace</span>
+      </div>
+
+      <div class="stats">
+        <article class="stat">
+          <span>▤</span><p>Available listings</p>
+          <strong id="statListings">0</strong>
+        </article>
+        <article class="stat">
+          <span>⌕</span><p>Potential matches</p>
+          <strong id="statMatches">0</strong>
+        </article>
+        <article class="stat">
+          <span>↻</span><p>Completed demo deals</p>
+          <strong id="statCompleted">0</strong>
+        </article>
+        <article class="stat">
+          <span>⚖</span><p>Recorded quantity</p>
+          <strong id="statKg">0 kg</strong>
+        </article>
+      </div>
+
+      <div class="heading section-gap">
+        <h2>Recent listings</h2>
+        <button class="text-button" data-view="listings">View all →</button>
+      </div>
+      <div id="recentListings" class="listing-grid"></div>
+    </section>
+
+    <section id="listings" class="view hidden">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">DISCOVER MATERIALS</p>
+          <h2>Available listings</h2>
+        </div>
+        <button class="button primary" data-view="add">+ Add listing</button>
+      </div>
+
+      <div class="filters">
+        <input id="search" placeholder="Search material, seller or area...">
+        <select id="filter">
+          <option value="all">All materials</option>
+          <option>Cardboard & packaging</option>
+          <option>Used cooking oil</option>
+          <option>Coffee grounds</option>
+          <option>Other reusable material</option>
+        </select>
+      </div>
+      <div id="allListings" class="listing-grid"></div>
+    </section>
+
+    <section id="add" class="view hidden">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">ADD TO THE LOOP</p>
+          <h2>List a material</h2>
+          <p class="muted">Create a sample listing for the demonstration.</p>
+        </div>
+      </div>
+
+      <form id="listingForm" class="form-card">
+        <div class="form-grid">
+          <label>Material category
+            <select id="material" required>
+              <option value="">Choose material</option>
+              <option>Cardboard & packaging</option>
+              <option>Used cooking oil</option>
+              <option>Coffee grounds</option>
+              <option>Other reusable material</option>
+            </select>
+          </label>
+
+          <label>Quantity
+            <input id="quantity" type="number" min="0.1" step="0.1"
+                   placeholder="e.g. 15" required>
+          </label>
+
+          <label>Unit
+            <select id="unit">
+              <option value="kg">Kilograms (kg)</option>
+              <option value="litres">Litres</option>
+              <option value="boxes">Boxes</option>
+            </select>
+          </label>
+
+          <label>Condition
+            <select id="condition">
+              <option>Clean / sorted</option>
+              <option>Needs sorting</option>
+              <option>Sealed container</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>Area or locality
+            <input id="area" placeholder="e.g. Adyar" required>
+          </label>
+
+          <label>Business name
+            <input id="seller" placeholder="e.g. Sample Cafe" required>
+          </label>
+        </div>
+
+        <label>Additional notes
+          <textarea id="notes" rows="3"
+                    placeholder="Describe the material..."></textarea>
+        </label>
+
+        <p class="muted">Use fictional information for this prototype.</p>
+        <button class="button primary" type="submit">Create listing →</button>
+      </form>
+    </section>
+
+    <section id="matches" class="view hidden">
+      <button class="text-button" data-view="listings">← Back to listings</button>
+      <div id="matchContent"></div>
+    </section>
+
+    <section id="impact" class="view hidden">
+      <div class="heading">
+        <div>
+          <p class="eyebrow">MEASURE THE LOOP</p>
+          <h2>Impact dashboard</h2>
+          <p class="muted">Numbers below are generated from demo records.</p>
+        </div>
+      </div>
+
+      <div class="impact-panel">
+        <div class="impact-circle">
+          <strong id="impactKg">0</strong>
+          <small>kg recorded</small>
+        </div>
+        <div>
+          <h3>Every recovered material starts with a connection.</h3>
+          <p>
+            A real LOOPIFY system could record completed collections
+            and verified weights. This prototype only records quantities
+            on listings marked completed by the user.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Recorded quantity</h3>
+          <p>Completed demo listings measured in kilograms.</p>
+        </article>
+        <article class="info-card">
+          <h3>Not independently verified</h3>
+          <p>No real collection, buyer identity or environmental benefit is verified.</p>
+        </article>
+        <article class="info-card">
+          <h3>Future development</h3>
+          <p>Shared database, verified buyers and real collection records.</p>
+        </article>
+      </div>
+      <button id="resetDemo" class="button secondary">Reset demo data</button>
+    </section>
+
+    <footer>
+      <strong>LOOPIFY</strong>
+      <span>ProtoSpark concept · Sample data only</span>
+    </footer>
+  </main>
+
+  <div id="toast" role="status" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
